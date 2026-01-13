@@ -129,6 +129,23 @@ main {
   color: rgba(255, 255, 255, 0.75);
 }
 
+.hero-info {
+  margin-top: 18px;
+  display: grid;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-location {
+  font-size: 0.95rem;
+}
+
+.hero-season {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
 .hero-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
