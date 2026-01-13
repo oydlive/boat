@@ -101,7 +101,7 @@ main {
 }
 
 .logo-row img:last-child {
-  height: 36px;
+  height: 72px;
 }
 
 .hero-headline {
@@ -149,12 +149,6 @@ main {
   font-weight: 700;
 }
 
-.chevron {
-  margin-top: 8px;
-  font-size: 1.6rem;
-  color: rgba(255, 255, 255, 0.5);
-}
-
 .section {
   padding: 88px 0;
   background: white;
@@ -183,6 +177,13 @@ main {
   margin: 0 auto 52px;
   color: var(--muted);
   font-size: 1.05rem;
+}
+
+.section-subnote {
+  text-align: center;
+  max-width: 640px;
+  margin: 20px auto 0;
+  color: var(--muted);
 }
 
 .callout {
