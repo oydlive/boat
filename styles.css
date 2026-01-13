@@ -33,6 +33,15 @@ main {
   background: #f8fafc;
 }
 
+.top-bar {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.top-bar .logo-row {
+  padding: 16px 0;
+}
+
 .container {
   max-width: 1020px;
   margin: 0 auto;
@@ -40,7 +49,7 @@ main {
 }
 
 .hero {
-  background: linear-gradient(180deg, #1f4172 0%, #2a4f86 100%);
+  background: linear-gradient(180deg, #2b5da0 0%, #3d6fb2 55%, #4b7bbf 100%);
   color: white;
   position: relative;
   overflow: hidden;
@@ -57,6 +66,7 @@ main {
   background-repeat: repeat-x;
   background-size: 720px 120px;
   opacity: 0.65;
+  animation: wave-slide 18s linear infinite;
 }
 
 .hero::before {
@@ -66,11 +76,12 @@ main {
 .hero::after {
   top: 320px;
   opacity: 0.35;
+  animation-duration: 24s;
 }
 
 .hero-top {
-  padding: 48px 24px 110px;
-  min-height: 58vh;
+  padding: 56px 24px 120px;
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,15 +93,15 @@ main {
   display: flex;
   align-items: center;
   gap: 28px;
-  margin-bottom: 64px;
+  margin-bottom: 0;
 }
 
 .logo-row img:first-child {
-  height: 64px;
+  height: 72px;
 }
 
 .logo-row img:last-child {
-  height: 32px;
+  height: 36px;
 }
 
 .hero-headline {
@@ -109,6 +120,7 @@ main {
   font-weight: 800;
   color: #7ae5ff;
   margin-top: 12px;
+  text-shadow: 0 12px 40px rgba(12, 42, 88, 0.35);
 }
 
 .hero-headline p {
@@ -118,7 +130,7 @@ main {
 }
 
 .hero-bottom {
-  background: #2d4f82;
+  background: #355e98;
   padding: 22px 0 36px;
   text-align: center;
   position: relative;
@@ -189,6 +201,7 @@ main {
   box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
   padding: 36px 28px;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .pill-icon {
@@ -202,6 +215,12 @@ main {
   justify-content: center;
   color: white;
   font-size: 1.5rem;
+  animation: float 6s ease-in-out infinite;
+}
+
+.pill-grid article:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.12);
 }
 
 .pill-grid h3 {
@@ -228,12 +247,14 @@ main {
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-card img {
   height: 220px;
   width: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
 .feature-card div {
@@ -247,6 +268,15 @@ main {
 
 .feature-card p {
   color: var(--muted);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 26px 60px rgba(15, 23, 42, 0.12);
+}
+
+.feature-card:hover img {
+  transform: scale(1.05);
 }
 
 .contact {
@@ -286,6 +316,39 @@ main {
   align-items: center;
   gap: 8px;
   color: var(--muted);
+}
+
+@keyframes wave-slide {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -720px 0;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .hero::after,
+  .pill-icon {
+    animation: none;
+  }
+
+  .pill-grid article,
+  .feature-card,
+  .feature-card img {
+    transition: none;
+  }
 }
 
 @media (max-width: 860px) {
